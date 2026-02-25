@@ -11,8 +11,8 @@ jobs:
           - os: ubuntu-24.04
             os_name: linux
             arch: x86-64
-            artifact_suffix: linux-x86-64
-          - os: ubuntu-24.04-aarch64
+            artifact_suffix: linux-x86-arm
+          - os: ubuntu-24.04-arm64
             os_name: linux
             arch: aarch64
             artifact_suffix: linux-aarch64
