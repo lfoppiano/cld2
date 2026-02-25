@@ -7,24 +7,23 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, macos-14]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-24.04
             os_name: linux
-            arch: x64
-            artifact_suffix: linux-x86_64
-          - os: ubuntu-24.04-arm
+            arch: x86-64
+            artifact_suffix: linux-x86-64
+          - os: ubuntu-24.04-aarch64
             os_name: linux
-            arch: arm64
-            artifact_suffix: linux-arm64
-          - os: macos-latest
-            os_name: mac
-            arch: x64
-            artifact_suffix: mac-x86_64
+            arch: aarch64
+            artifact_suffix: linux-aarch64
           - os: macos-15-intel
             os_name: mac
-            arch: arm64
-            artifact_suffix: mac-arm64
+            arch: x86-64
+            artifact_suffix: mac-x86-64
+          - os: macos-latest
+            os_name: mac
+            arch: aarch64
+            artifact_suffix: mac-aarch64
 
     runs-on: ${{ matrix.os }}
 
