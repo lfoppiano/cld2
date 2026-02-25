@@ -19,11 +19,11 @@ jobs:
           - os: macos-15-intel
             os_name: mac
             arch: x86-64
-            artifact_suffix: mac-x86-64
+            artifact_suffix: darwin-x86-64
           - os: macos-latest
             os_name: mac
             arch: aarch64
-            artifact_suffix: mac-aarch64
+            artifact_suffix: darwin-aarch64
 
     runs-on: ${{ matrix.os }}
 
