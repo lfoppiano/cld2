@@ -12,7 +12,7 @@ jobs:
           - os: ubuntu-latest
             os_name: linux
             arch: x64
-            artifact_suffix: linux-x64
+            artifact_suffix: linux-x86_64
           - os: ubuntu-24.04-arm
             os_name: linux
             arch: arm64
@@ -20,8 +20,8 @@ jobs:
           - os: macos-latest
             os_name: mac
             arch: x64
-            artifact_suffix: mac-x64
-          - os: macos-14
+            artifact_suffix: mac-x86_64
+          - os: macos-15-intel
             os_name: mac
             arch: arm64
             artifact_suffix: mac-arm64
@@ -44,7 +44,8 @@ jobs:
 
       - name: Copy library to output
         run: |
-          cp internal/libcld2.${{ matrix.os_name == 'mac' && 'dylib' || 'so' }} output/${{ matrix.artifact_suffix }}/
+          cp internal/libcld2.${{ matrix.os_name == 'mac' && 'dylib' || 'so' }} output/${{ matrix.artifact_suffix }}/ 
+          cp internal/libcld2_full.${{ matrix.os_name == 'mac' && 'dylib' || 'so' }} output/${{ matrix.artifact_suffix }}/
 
       - name: Save artifact
         uses: actions/upload-artifact@v4
