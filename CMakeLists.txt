@@ -63,6 +63,7 @@ set_target_properties(cld2_full PROPERTIES
   VERSION ${VERSION}
   SOVERSION 0
   )
+target_link_libraries(cld2_full cld2)
 
 add_library(cld2_dynamic SHARED ${cld2_dynamic_SOURCE_FILES})
 set_target_properties(cld2_dynamic PROPERTIES
